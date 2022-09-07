@@ -44,7 +44,7 @@ model_H.szCoM = model_H.foot/2*0.8; %CoM allowed width
 model_H.base = [0;0];
 model_H.nbFct = 5; %Number of basis functuin used for control and movement primitivs
 x0_H = [pi;3*pi/2;pi;pi/4;pi/2;zeros(model_H.nbVarX,1)];
-model_H.r_vec = [1.000 1.000 1.000 1 1 1 1]*1e-5; % [ankle, knee, hip, shoulder, elbow, Horizontal external force, Vertical external force]. Only the first three should be changed in the range of .1 to 1000.
+model_H.r_vec = [.1000 .1000 .1000 1 1 1 1]*1e-5; % [ankle, knee, hip, shoulder, elbow, Horizontal external force, Vertical external force]. Only the first three should be changed in the range of .1 to 1000.
 EE_H=(model_H.L(1,:)*[sin(x0_H(1:model_H.nbVarX,1)) -cos(x0_H(1:model_H.nbVarX,1))])'; %position of the human's hand in the task space
 %The robot model
 model_R.nbVarX = 5; %State space dimension (q1,q2,q3, ...)

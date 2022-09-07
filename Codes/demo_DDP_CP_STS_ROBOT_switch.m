@@ -201,19 +201,19 @@ for t=1:1:length(tl)
         xlim([-1 2])
         ylim([-.5 2.5])
         f_H = fkine00(x_H(1:model_H.nbVarX,t), model_H.L) + model_H.base; %End-effector position
-		cTmp_R = colRob(2,:);
-		plotArm2(x_H(1:model_H.nbVarX,tl(t)), model_R.L, [model_H.base; -10], .07, .3, 0.1,1, cTmp_R);
+		cTmp_H = colRob(1,:);
+		plotArm2(x_H(1:model_H.nbVarX,tl(t)), model_R.L, [model_H.base; -10], .07, .3, 0.1,1, cTmp_H);
         hold on;
-		plotCoM(xc_H(:,tl(t)), .03, max(cTmp_R-.1,0));
+		plotCoM(xc_H(:,tl(t)), .03, max(cTmp_H-.1,0));
         hold on;
-        plotRobotHead(x_H(1:model_H.nbVarX,tl(t)), model_H.L, [model_H.base; -10], model_H.H*0.121, cTmp_R);
+        plotHumanHead(x_H(1:model_H.nbVarX,tl(t)), model_H.L, [model_H.base; -10], model_H.H*0.121, cTmp_H);
         hold on;
-        cTmp_H = colRob(1,:);
-		plotArm2(x_R(1:model_R.nbVarX,tl(t)), model_R.L, [model_R.base; -10], .05, .2,.07,-1, cTmp_H);
+        cTmp_R = colRob(2,:);
+		plotArm2(x_R(1:model_R.nbVarX,tl(t)), model_R.L, [model_R.base; -10], .05, .2,.07,-1, cTmp_R);
         hold on;
-		plotCoM(xc_R(:,tl(t)), .025, max(cTmp_H-.1,0));
+		plotCoM(xc_R(:,tl(t)), .025, max(cTmp_R-.1,0));
         hold on;
-        plotHumanHead(x_R(1:model_R.nbVarX,tl(t)), model_R.L, [model_R.base; -10], model_R.H*0.121, cTmp_H);
+        plotRobotHead(x_R(1:model_R.nbVarX,tl(t)), model_R.L, [model_R.base; -10], model_R.H*0.121, cTmp_R);
         hold on;
         plot([model_H.base(1)-.5 model_R.base(1)+.5],[-.08 -0.08], 'k-','linewidth',2)
         hold on;
